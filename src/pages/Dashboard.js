@@ -15,6 +15,8 @@ import split from '../assets/img/split.webp'
 import error from '../assets/img/error.webp'
 import forever from "../assets/img/forever.webp"
 
+import MaterialTable from 'material-table';
+
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow:1,
@@ -31,6 +33,9 @@ const useStyles = makeStyles(() => ({
   },
   containerTabla:{
     marginTop: '40px'
+  },
+  containerTable:{
+    paddingTop: '200px'
   }
 }))
 
@@ -60,6 +65,34 @@ const data = [
       imagen: forever,
     },
 ];
+
+const columnas =[
+  {
+    title: 'Artista',
+    field: 'artista'
+  },
+  {
+    title: 'Pais de origen',
+    field: 'pais'
+  },
+  {
+    title: 'Generos(s)',
+    field: 'genero'
+  },
+  {
+    title: 'Ventas estimadas en millones',
+    field: 'ventas',
+    type: 'numeric'
+  }
+]
+
+const dataTabla= [
+  {artista: "Los Beatles", pais: 'Reino Unido', genero: 'Rock, Pop', ventas: 1000},
+  {artista: "Elvis Presley", pais: 'Estados Unidos', genero: 'Rock and roll, country', ventas: 1000},
+  {artista: "Michael JAckson", pais: 'Estados Unidos', genero: 'Pop, Rock, dance , r&B', ventas: 600},
+  {artista: "MAdona", pais: 'Estados Unidos', genero: 'Pop, Rock', ventas: 400},
+  {artista: "Elton John", pais: 'Reino Unido', genero: 'Pop, Rock', ventas: 350},
+]
 
 function Dashboard(props) {
   const classes = useStyles();
@@ -102,6 +135,36 @@ function Dashboard(props) {
 
         <Grid item xs={12} className={classes.containerTabla}>
           <TableMaterial data={data} />
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={3} className={classes.containerTable}>
+        <Grid item xs={12} sm={12} md={12}>
+        <MaterialTable 
+          columns={columnas}
+          data={dataTabla}
+          title="Artistas Musicales con Mayores Ventas"
+          actions={[
+            {
+              icon: 'edit',
+              tooltip: 'Editar artista',
+              onClick: (event, rowData) => alert('Has presionado editar al artista...'+rowData.artista)
+            },
+            {
+              icon: 'delete',
+              tooltip: 'Eliminar artista',
+              onClick: (event, rowData) => window.confirm('Estas seguro que deseas eliminar al artista...'+rowData.artista+ '?')
+            }
+          ]}
+          options={{
+            actionsColumnIndex:-1
+          }}
+          localization={{
+            header:{
+              actions: 'Acciones'
+            }
+          }}
+        />
         </Grid>
       </Grid>
     </div>
