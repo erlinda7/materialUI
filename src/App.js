@@ -1,30 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
-import Button from '@material-ui/core/Button';
 import styles from './App.styles';
+import { Grid } from '@material-ui/core';
 
 function App() {
   const classes = styles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button variant="contained" color="primary" className={classes.mainBtn}>
-          Hey!
-        </Button>
-      </header>
-    </div>
+    <Grid container>
+      <Grid item md={3} sm={6} xs={12}>
+        <img src="https://www.pngkey.com/png/detail/306-3062096_free-mashable-logo-png-material-ui-icon-svg.png"/>
+      </Grid >
+      <Grid item md={3} sm={6} xs={12}>
+        <img src="https://www.pngkey.com/png/detail/306-3062096_free-mashable-logo-png-material-ui-icon-svg.png"/>
+      </Grid>
+      <Grid item md={3} sm={6} xs={12}>
+        <img src="https://www.pngkey.com/png/detail/306-3062096_free-mashable-logo-png-material-ui-icon-svg.png"/>
+      </Grid>
+      <Grid item md={3} sm={6} xs={12}>
+        <img src="https://www.pngkey.com/png/detail/306-3062096_free-mashable-logo-png-material-ui-icon-svg.png"/>
+      </Grid>
+
+    </Grid>
   );
 }
 
