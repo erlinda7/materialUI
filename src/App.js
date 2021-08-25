@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import Button from '@material-ui/core/Button';
+import styles from './App.styles';
 
 function App() {
+  const classes = styles();
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +20,9 @@ function App() {
         >
           Learn React
         </a>
+        <Button variant="contained" color="primary" className={classes.mainBtn}>
+          Hey!
+        </Button>
       </header>
     </div>
   );
